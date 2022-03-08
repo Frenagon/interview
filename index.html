@@ -11,61 +11,18 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="src/styles/style.css" />
-    <script src="src/js/profileCard.js"></script>
+    <script type="module" src="src/js/profileCard.js"></script>
     <title>Profile Card</title>
   </head>
   <body>
-    <div id="profile1" class="profile-card">
-      <div class="profile-main">
-        <div class="profile-text">
-          <h2 class="profile-name">Captain Cornelius</h2>
-          <p class="profile-phrace">Let's go on an adventure!</p>
-        </div>
-        <button
-          id="open-button"
-          class="profile-button"
-          type="button"
-          onclick="openProfile('profile1', this)"
-        >
-          +
-        </button>
-      </div>
-      <div class="profile-links">
-        <p class="links-text">Follow Me on Social Media!</p>
-        <a href="#" class="social-link">
-          <img src="src/images/icon-facebook.svg" alt="Facebook Link" />
-        </a>
-        <a href="#" class="social-link">
-          <img src="src/images/icon-instagram.svg" alt="Instagram Link" />
-        </a>
-        <a href="#" class="social-link">
-          <img src="src/images/icon-twitter.svg" alt="Twitter Link" />
-        </a>
-        <a href="#" class="social-link">
-          <img src="src/images/icons-linkedin.svg" alt="Twitter Link" />
-        </a>
-        <a href="#" class="social-link">
-          <img src="src/images/icons-github.svg" alt="Twitter Link" />
-        </a>
-        <a href="#" class="social-link">
-          <img src="src/images/icon-youtube.svg" alt="Twitter Link" />
-        </a>
-        <p class="links-text">Free Cookies!</p>
-      </div>
-      <div class="profile-stats">
-        <div class="stat">
-          <p class="stat-title">Projects</p>
-          <p class="stat-text">19</p>
-        </div>
-        <div class="stat">
-          <p class="stat-title">Forks</p>
-          <p class="stat-text">8</p>
-        </div>
-        <div class="stat">
-          <p class="stat-title">Commits</p>
-          <p class="stat-text">4,507</p>
-        </div>
-      </div>
-    </div>
+    <profile-card
+      img="http://placecorgi.com/410"
+      profile-name="Captain Cornelius"
+      phrace="Let's go on an adventure"
+      cta="I Have Free Cookies!"
+      projects="19"
+      forks="8"
+      commits="4507"
+    />
   </body>
 </html>
