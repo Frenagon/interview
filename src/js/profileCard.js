@@ -3,6 +3,10 @@ import { contactList } from "./contactListMock.js";
 class ProfileCard extends HTMLElement {
   constructor() {
     super();
+  }
+
+  connectedCallback() {
+    this.attachShadow({ mode: "open" });
 
     const card = document.createElement("div");
     card.setAttribute("class", "profile-card");
@@ -14,7 +18,7 @@ class ProfileCard extends HTMLElement {
     style.setAttribute("rel", "stylesheet");
     style.setAttribute("href", "src/styles/profileCard.css");
 
-    this.append(style, card);
+    this.shadowRoot.append(style, card);
   }
 
   generateMainContent(card) {

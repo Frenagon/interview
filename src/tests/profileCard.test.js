@@ -1,7 +1,6 @@
 import { getByRole, getByTestId, getByText } from "@testing-library/dom";
-import "@testing-library/jest-dom";
-import "@testing-library/user-event";
 import userEvent from "@testing-library/user-event";
+import "@testing-library/jest-dom";
 import "../js/profileCard.js";
 
 const profileInfo = {
@@ -15,25 +14,22 @@ const profileInfo = {
 };
 
 function getProfileCard() {
-  const wrapper = document.createElement("div");
-  wrapper.innerHTML = `
-    <profile-card
-        img="${profileInfo.image}"
-        profile-name="${profileInfo.name}"
-        phrace="${profileInfo.phrace}"
-        cta="${profileInfo.cta}"
-        projects="${profileInfo.projects}"
-        forks="${profileInfo.forks}"
-        commits="${profileInfo.commits}"
-      />
-  `;
-  document.body.appendChild(wrapper);
-  return wrapper;
+  const card = document.createElement("profile-card");
+  card.setAttribute("id", "testing-profile");
+  card.setAttribute("img", profileInfo.image);
+  card.setAttribute("profile-name", profileInfo.name);
+  card.setAttribute("phrace", profileInfo.phrace);
+  card.setAttribute("cta", profileInfo.cta);
+  card.setAttribute("projects", profileInfo.projects);
+  card.setAttribute("forks", profileInfo.forks);
+  card.setAttribute("commits", profileInfo.commits);
+  document.body.appendChild(card);
+  return card.shadowRoot;
 }
 
-afterEach(() => (document.body.innerHTML = ""));
+afterEach(() => document.body.removeChild(document.body.firstChild));
 
-test("Profile Card renders the information correctly", () => {
+test("Profile Card renders the information correctly", async () => {
   const container = getProfileCard();
 
   expect(getByTestId(container, "profile-picture")).toHaveStyle(
