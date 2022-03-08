@@ -1,0 +1,20 @@
+{
+  "name": "interview",
+  "version": "1.0.0",
+  "repository": "git@github.com:Frenagon/interview.git",
+  "author": "frenagon <frenagon@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/preset-env": "^7.16.11",
+    "@testing-library/dom": "^8.11.3",
+    "@testing-library/jest-dom": "^5.16.2",
+    "@testing-library/user-event": "^13.5.0",
+    "babel-jest": "^27.5.1",
+    "jest": "^27.5.1"
+  },
+  "scripts": {
+    "test": "jest"
+  }
+}

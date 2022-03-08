@@ -4,8 +4,6 @@ class ProfileCard extends HTMLElement {
   constructor() {
     super();
 
-    this.attachShadow({ mode: "open" });
-
     const card = document.createElement("div");
     card.setAttribute("class", "profile-card");
     card.appendChild(this.generateMainContent(card));
@@ -16,11 +14,12 @@ class ProfileCard extends HTMLElement {
     style.setAttribute("rel", "stylesheet");
     style.setAttribute("href", "src/styles/profileCard.css");
 
-    this.shadowRoot.append(style, card);
+    this.append(style, card);
   }
 
   generateMainContent(card) {
     const main = document.createElement("div");
+    main.setAttribute("data-testid", "profile-picture");
     main.setAttribute("class", "profile-main");
     main.style.backgroundImage = `url(${this.getAttribute("img")})`;
 
