@@ -56,7 +56,7 @@ class ProfileCard extends HTMLElement {
     const linksTitle = links.appendChild(linkText.cloneNode());
     linksTitle.textContent = "Contact Me";
 
-    contactList.forEach(({ name, icon, link }) => {
+    contactList.forEach(({ name, iconPath, link }) => {
       const contactLink = links.appendChild(document.createElement("a"));
       contactLink.setAttribute("href", link);
       contactLink.setAttribute("class", "contact-link");
@@ -64,7 +64,7 @@ class ProfileCard extends HTMLElement {
       const contactImage = contactLink.appendChild(
         document.createElement("img")
       );
-      contactImage.setAttribute("src", icon);
+      contactImage.setAttribute("src", iconPath);
       contactImage.setAttribute("alt", `${name} Link`);
     });
 
