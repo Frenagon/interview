@@ -12,9 +12,73 @@
     />
     <link rel="stylesheet" href="src/styles/style.css" />
     <script type="module" src="src/js//components/profileCard.js"></script>
+    <script
+      type="module"
+      src="src/js//components/profileCardWithTemplate.js"
+    ></script>
     <title>Profile Card</title>
   </head>
   <body>
+    <template id="profile-card-template">
+      <link rel="stylesheet" href="src/styles/profileCard.css" />
+      <div id="profile-card" class="profile-card">
+        <div
+          data-testid="profile-picture"
+          id="profile-picture"
+          class="profile-main"
+          style="background-image: url('http://placecorgi.com/410')"
+        >
+          <div class="profile-text">
+            <h2 class="profile-name">
+              <slot name="profile-name">UNNAMED</slot>
+            </h2>
+            <p class="profile-phrace">
+              <slot name="phrace">Lorem Ipsum</slot>
+            </p>
+          </div>
+          <button type="button" id="open-button" class="profile-button">
+            +
+          </button>
+        </div>
+        <div class="profile-links">
+          <p class="links-text">Contact Me</p>
+          <a href="#" class="contact-link">
+            <img src="src/images/icon-facebook.svg" alt="Facebook Link" />
+          </a>
+          <a href="#" class="contact-link">
+            <img src="src/images/icon-mail.svg" alt="Email Link" />
+          </a>
+          <a href="#" class="contact-link">
+            <img src="src/images/icon-twitter.svg" alt="Twitter Link" />
+          </a>
+          <a href="#" class="contact-link">
+            <img src="src/images/icon-linkedin.svg" alt="LinkedIn Link" />
+          </a>
+          <a href="#" class="contact-link">
+            <img src="src/images/icon-github.svg" alt="GitHub Link" />
+          </a>
+          <a href="#" class="contact-link">
+            <img src="src/images/icon-youtube.svg" alt="YouTube Link" />
+          </a>
+          <p class="links-text"><slot name="cta">Call Me!</slot></p>
+        </div>
+        <div class="profile-stats">
+          <div class="stat">
+            <p class="stat-title">Projects</p>
+            <p class="stat-text"><slot name="projects">0</slot></p>
+          </div>
+          <div class="stat">
+            <p class="stat-title">Forks</p>
+            <p class="stat-text"><slot name="forks">0</slot></p>
+          </div>
+          <div class="stat">
+            <p class="stat-title">Commits</p>
+            <p class="stat-text"><slot name="commits">0</slot></p>
+          </div>
+        </div>
+      </div>
+    </template>
+
     <profile-card
       img="http://placecorgi.com/410"
       profile-name="Captain Cornelius"
@@ -24,5 +88,14 @@
       forks="8"
       commits="4507"
     ></profile-card>
+    <br />
+    <profile-card-with-template img="http://placekitten.com/410">
+      <span slot="profile-name">Mr. Freckles</span>
+      <span slot="phrace">This is a Coding Adventure</span>
+      <span slot="cta">Let's have a chat!</span>
+      <span slot="projects">113</span>
+      <span slot="forks">5</span>
+      <span slot="commits">182,345</span>
+    </profile-card-with-template>
   </body>
 </html>
