@@ -25,6 +25,8 @@ The framework used for unit testing was [Jest](https://jestjs.io/) using [Testin
 
 Using Shadow DOM helps preserve it's own styling without clashing with other contents of the page.
 
+You can see the app working on: https://hopeful-elion-9d1be3.netlify.app/
+
 # How to Use
 
 Clone the branch using the following command:
