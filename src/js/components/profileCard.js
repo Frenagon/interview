@@ -1,4 +1,4 @@
-import { contactList } from "./contactListMock.js";
+import { contactList } from "../mocks/contactListMock.js";
 
 class ProfileCard extends HTMLElement {
   constructor() {
@@ -6,8 +6,6 @@ class ProfileCard extends HTMLElement {
   }
 
   connectedCallback() {
-    this.attachShadow({ mode: "open" });
-
     const card = document.createElement("div");
     card.setAttribute("class", "profile-card");
     card.appendChild(this.generateMainContent(card));
@@ -18,7 +16,8 @@ class ProfileCard extends HTMLElement {
     style.setAttribute("rel", "stylesheet");
     style.setAttribute("href", "src/styles/profileCard.css");
 
-    this.shadowRoot.append(style, card);
+    const shadow = this.attachShadow({ mode: "open" });
+    shadow.append(style, card);
   }
 
   generateMainContent(card) {

@@ -1,7 +1,7 @@
 import { getByRole, getByTestId, getByText } from "@testing-library/dom";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
-import "../js/profileCard.js";
+import "../js/components/profileCard.js";
 
 const profileInfo = {
   image: "http://placecorgi.com/410",
